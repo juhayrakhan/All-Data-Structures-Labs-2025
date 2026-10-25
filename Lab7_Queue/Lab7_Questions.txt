@@ -1,0 +1,232 @@
+LAB 7 — QUESTIONS (deduplicated)
+================================================
+Question prompts were consolidated from the supplied files. Exact and near-identical duplicates are included once.
+Variants with materially different requirements are retained.
+
+
+--- Item 1 | Source: Lab Task 7 (Section G).pdf ---
+
+Question 1: Design a Generic Queue Class Using Templates 
+Implement a queue data structure using templates and perform basic operations on it. 
+Requirements: 
+• Create a class called Node using templates to represent a node for a queue. Each node should have an 
+integer data field and a pointer to the next node. 
+• Create a class called Queue using templates to represent the queue data structure. 
+• Queue will have a front pointer that will point towards the node in the front of the queue and a rear 
+pointer that will point towards the end of the queue. 
+Implement the following methods in the Queue class: 
+• enqueue(item): Add an item to the back of the queue. 
+• dequeue(): Remove and return the item from the front of the queue. 
+• peek(): Return the item at the front of the queue without removing it. 
+• is_empty(): Return True if the queue is empty, False otherwise. 
+• size(): Return the number of elements in the queue. 
+• clear(): Clear all elements from a node-based queue, effectively making it an empty queue. 
+• isPalindrome(string str): to check palindrome using recursion. 
+Example: 
+Queue<int> q; 
+q.enqueue(10);   // queue: 10 
+q.enqueue(20);   // queue: 10 20 
+q.enqueue(30);   // queue: 10 20 30 
+q.dequeue();     // removes 10, queue: 20 30 
+q.peek();        // returns 20 
+q.size();        // returns 2 
+q.clear();       // queue: (empty) 
+  
+isPalindrome("madam");   // returns true 
+isPalindrome("queue");   // returns false 
+ 
+ 
+ 
+
+Data Structures — Lab 07 Tasks 
+Page 3
+
+--- Item 2 | Source: Lab Task 7 (Section G).pdf ---
+
+Question 2: Simulate a Ticket Counter (Simple Queue) 
+A ticket counter serves customers strictly in the order they arrive (First-Come, First-Served). Each customer is 
+described by an arrival time and a service duration (the time the counter needs to fully serve them). Using a simple 
+queue, simulate the counter serving every customer one after another, and report each customer's waiting time 
+(the time between their arrival and the moment service starts) and their completion time. 
+Example: 
+Input (arrival time, service duration): 
+  Customer 1: (0, 5) 
+  Customer 2: (2, 3) 
+  Customer 3: (4, 2) 
+  
+Output (customer, waiting time, completion time): 
+  Customer 1  ->  waiting: 0  ->  completion: 5 
+  Customer 2  ->  waiting: 3  ->  completion: 8 
+  Customer 3  ->  waiting: 4  ->  completion: 10 
+• Enqueue customers as they arrive (in arrival order, since arrival order is already sorted here). 
+• The counter can only serve the customer at the front; a new customer cannot jump ahead even if it arrives 
+while the counter is briefly idle. 
+• waiting time = (time the counter actually starts serving them) - (their arrival time).
+
+--- Item 3 | Source: Lab Task 7 (Section G).pdf ---
+
+Question 3: Multi-Level Priority Scheduler (Three Simple Queues) 
+ 
+Design a scheduler that manages three simple queues, one for each priority level: 0 (high), 1 (medium), and 2 
+(low). Every process carries a process ID, a priority level, and a remaining burst time. The scheduler must always 
+serve queue 0 completely before touching queue 1, and queue 1 completely before touching queue 2. Every time 
+a process is served, it runs for a fixed time quantum of 10 units. If a process has been served three times within 
+its current queue without finishing, it must be promoted to the next higher priority queue (its execution count 
+resets to 0 there) to prevent it from waiting indefinitely. 
+Example: 
+Input processes (id, priority, burst time): 
+  P1 (id=1, priority=0, burst=25) 
+  P2 (id=2, priority=1, burst=15) 
+  P3 (id=3, priority=2, burst=35) 
+  
+Output (partial trace): 
+  Run P1 (priority 0)  ->  remaining 15 
+  Run P1 (priority 0)  ->  remaining 5 
+  Run P1 (priority 0)  ->  remaining -5  ->  P1 completed 
+  Run P2 (priority 1)  ->  remaining 5 
+  Run P2 (priority 1)  ->  remaining -5  ->  P2 completed 
+  Run P3 (priority 2)  ->  remaining 25 
+  Run P3 (priority 2)  ->  remaining 15 
+  Run P3 (priority 2)  ->  remaining 5   ->  P3 promoted to priority 1 
+  Run P3 (priority 1)  ->  remaining -5  ->  P3 completed 
+
+Data Structures — Lab 07 Tasks 
+Page 4 
+• Always check queue 0 first, then queue 1, then queue 2, a process in a lower-priority queue must never run 
+while a higher-priority queue still has a process waiting. 
+• Track each process's execution count separately from its remaining burst time, and reset the count to 0 
+whenever the process is promoted.
+
+--- Item 4 | Source: Lab Task 7 Section D.docx ---
+
+Question 1: Design a Generic Queue Class Using Templates
+Implement a queue data structure using templates and perform basic operations on it.
+Requirements:
+Create a class called Node using templates to represent a node for a queue. Each node should have an integer data field and a pointer to the next node.
+Create a class called Queue using templates to represent the queue data structure.
+Queue will have a front pointer that will point towards the node in the front of the queue and a rear pointer that will point towards the end of the queue.
+Implement the following methods in the Queue class:
+enqueue(item): Add an item to the back of the queue.
+dequeue(): Remove and return the item from the front of the queue.
+peek(): Return the item at the front of the queue without removing it.
+is_empty(): Return True if the queue is empty, False otherwise.
+size(): Return the number of elements in the queue.
+clear(): Clear all elements from a node-based queue, effectively making it an empty queue.
+isPalindrome(string str): to check palindrome using recursion.
+Example:
+
+--- Item 5 | Source: Lab Task 7 Section D.docx ---
+
+Question 2: Validate a Sequence of Circular Queue Operations
+Given a circular queue's fixed capacity and a sequence of operations — each either "E value" (enqueue value) or "D" (dequeue) — simulate the sequence against an initially empty circular queue of that capacity. Report the first operation, if any, that is invalid (an enqueue attempted while the queue is full, or a dequeue attempted while the queue is empty), along with the queue's contents immediately before that operation. If every operation succeeds, report that the entire sequence is valid.
+Example:
+Simulate the operations one at a time in the given order, updating front/rear exactly as in the manual's circular queue.
+Stop and report as soon as the first invalid operation is found — do not continue simulating afterward.
+
+--- Item 6 | Source: Lab Task 7 Section D.docx ---
+
+Question 3: Round Robin CPU Scheduler (Simple Queue) 
+Round robin gives every task a fixed time slot (quantum) on the CPU. If a task does not finish within its quantum, it is removed from the front of the queue and re-inserted at the rear with its remaining execution time; the task now at the front is then served next. This repeats until the queue is empty.
+Sample terminal output — Round Robin execution (Quantum = 30)
+
+Example:
+Dequeue the task at the front, subtract the quantum from its remaining time, and print its status.
+A remaining time of 0 or less means the task is finished and must not be re-queued; a positive remaining time must be enqueued again at the rear.
+
+Queue<int> q;
+q.enqueue(10);   // queue: 10
+q.enqueue(20);   // queue: 10 20
+q.enqueue(30);   // queue: 10 20 30
+q.dequeue();     // removes 10, queue: 20 30
+q.peek();        // returns 20
+q.size();        // returns 2
+q.clear();       // queue: (empty)
+ 
+isPalindrome("madam");   // returns true
+isPalindrome("queue");   // returns false
+Input:  capacity = 3
+        operations = [E 5, E 8, D, E 1, E 9, E 2, E 4]
+ 
+Output:
+  Step 1: E 5  ->  queue: 5
+  Step 2: E 8  ->  queue: 5 8
+  Step 3: D    ->  queue: 8            (removed 5)
+  Step 4: E 1  ->  queue: 8 1
+  Step 5: E 9  ->  queue: 8 1 9         (now full)
+  Step 6: E 2  ->  INVALID: queue is full, cannot enqueue 2
+  (sequence stops here; step 7 is never attempted)
+Input:  tasks (execution time) = [50, 30, 80, 100],  quantum = 30
+ 
+Output:
+  Task 1  ->  ran for 30  ->  remaining 20  ->  re-queued
+  Task 2  ->  ran for 30  ->  remaining 0   ->  completed
+  Task 3  ->  ran for 30  ->  remaining 50  ->  re-queued
+  Task 4  ->  ran for 30  ->  remaining 70  ->  re-queued
+  Task 1  ->  ran for 20  ->  remaining -10 ->  completed
+  ... (continues in the same pattern until the queue is empty)
+
+--- Item 7 | Source: Lab07_B.pdf ---
+
+Question 2: Validate a Sequence of Circular Queue Operations  
+
+Data Structures — Lab 07 Tasks 
+Page 3 
+Given a circular queue's fixed capacity and a sequence of operations — each either "E value" (enqueue value) or 
+"D" (dequeue) — simulate the sequence against an initially empty circular queue of that capacity. Report the first 
+operation, if any, that is invalid (an enqueue attempted while the queue is full, or a dequeue attempted while the 
+queue is empty), along with the queue's contents immediately before that operation. If every operation succeeds, 
+report that the entire sequence is valid. 
+Example: 
+Input:  capacity = 3 
+        operations = [E 5, E 8, D, E 1, E 9, E 2, E 4] 
+  
+Output: 
+  Step 1: E 5  ->  queue: 5 
+  Step 2: E 8  ->  queue: 5 8 
+  Step 3: D    ->  queue: 8            (removed 5) 
+  Step 4: E 1  ->  queue: 8 1 
+  Step 5: E 9  ->  queue: 8 1 9         (now full) 
+  Step 6: E 2  ->  INVALID: queue is full, cannot enqueue 2 
+  (sequence stops here; step 7 is never attempted) 
+• Simulate the operations one at a time in the given order, updating front/rear exactly as in the manual's 
+circular queue. 
+• Stop and report as soon as the first invalid operation is found — do not continue simulating afterward.
+
+--- Item 8 | Source: Lab07_B.pdf ---
+
+Question 3: FIFO Page Replacement Simulator (Circular Queue)  
+A page-replacement policy decides which page to evict from a fixed-size cache when a new page must be loaded 
+and the cache is already full. Implement the FIFO (First-In-First-Out) page-replacement algorithm using your 
+CircularQueue class from Question 2: the queue holds the pages currently in the cache, oldest first, so the page at 
+the front is always the next one evicted. 
+Given a cache capacity C and a sequence of page requests, process the requests one at a time: if the requested page 
+is already in the cache, that request is a hit and the queue is left unchanged; if the page is not in the cache and the 
+cache has free room, insert it (a fault); if the page is not in the cache and the cache is full, remove the page at the 
+front of the queue (evicting it) and then insert the requested page at the rear (also a fault). 
+After every request, print whether it was a HIT or a FAULT — and, when a fault evicted something, which page 
+was evicted — along with the cache's contents at that moment. After the last request, print the total number of hits 
+and the total number of faults. 
+Example: 
+Input:  capacity = 3,  page requests = [1, 2, 3, 2, 4, 1, 5] 
+  
+Output: 
+  Request 1  ->  FAULT (loaded)      ->  cache: 1 
+  Request 2  ->  FAULT (loaded)      ->  cache: 1 2 
+  Request 3  ->  FAULT (loaded)      ->  cache: 1 2 3      (full) 
+  Request 2  ->  HIT                 ->  cache: 1 2 3 
+  Request 4  ->  FAULT (evicted 1)   ->  cache: 2 3 4 
+  Request 1  ->  FAULT (evicted 2)   ->  cache: 3 4 1 
+  Request 5  ->  FAULT (evicted 3)   ->  cache: 4 1 5 
+  
+Summary: hits = 1, faults = 6 
+
+Data Structures — Lab 07 Tasks 
+Page 4 
+• Checking whether a page is already in the cache means scanning the CircularQueue's current contents (front 
+to rear, wrapping as needed); do this by reading the underlying array without removing anything from the 
+queue. 
+• Use your CircularQueue's insert and remove exactly as designed in Question 2 — insert adds at the rear 
+(wrapping when necessary), remove evicts from the front — do not bypass the class to manipulate the array 
+directly. 
+• A hit must not change the queue at all: FIFO order depends only on when a page was first loaded, not on 
+when it was last used.

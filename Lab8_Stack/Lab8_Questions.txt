@@ -1,0 +1,304 @@
+LAB 8 — QUESTIONS (deduplicated)
+================================================
+Question prompts were consolidated from the supplied files. Exact and near-identical duplicates are included once.
+Variants with materially different requirements are retained.
+
+
+--- Item 1 | Source: Lab Task 8.docx ---
+
+Task 1: Stack Class (Template)   [EASY · COMPULSORY FOR ALL]
+Write a templated Stack class using a singly linked list, as shown in the Lab 08 manual. It must have these functions:
+
+Example:
+Stack<int> s;
+s.push(10);  s.push(20);  s.push(30);
+s.print();                  // 30 20 10
+cout << s.peek() << endl;   // 30
+s.pop();
+cout << s.peek() << endl;   // 20
+s.clear();
+cout << s.isEmpty();        // 1
+
+--- Item 2 | Source: Lab Task 8.docx ---
+
+Task 2: Valid Parentheses   [MEDIUM]
+You are building a code editor. When a programmer types code, the editor must warn them if the brackets ( ) { } [ ] are written wrongly. A line is correct only if every opening bracket is closed by the same type of bracket, in the correct order.
+Your task: check whether the given bracket string is correct.
+Input: a string s made only of (, ), {, }, [, ].
+Output: true if the brackets are correct, otherwise false.
+bool isValid(string s);
+
+"()[]{}"  ->  true
+"{[]}"    ->  true
+"(]"      ->  false     // wrong type
+"([)]"    ->  false     // wrong order
+"(("      ->  false     // never closed
+
+--- Item 3 | Source: Lab Task 8.docx ---
+
+Task 3: Simplify Path   [MEDIUM]
+A user types a messy folder path in a terminal, for example /home//docs/./../photos/. The system must convert it into the shortest correct path, called the canonical path.
+The rules are:
+. means the current folder, so ignore it.
+.. means go up one folder. At the root / it does nothing.
+Many slashes in a row (//) count as one slash.
+Names such as ... are normal folder names.
+The result starts with one / and has no / at the end (except the root / itself).
+Input: an absolute path path.
+Output: the canonical path as a string.
+string simplifyPath(string path);
+
+"/home/"                 ->  "/home"
+"/home//foo/"            ->  "/home/foo"
+"/../"                   ->  "/"
+"/a/./b/../../c/"        ->  "/c"
+"/.../a/../b/c/../d/./"  ->  "/.../b/d"
+
+--- Item 4 | Source: Lab Task 8.docx ---
+
+Task 4: Remove K Digits   [MEDIUM]
+A lottery office gives every ticket a long serial number. The winner must erase exactly k digits from it, and the remaining digits (in the same order) form the winning token. The office always wants the smallest possible token.
+The token must not start with zero (unless it is just 0). If every digit is erased, the token is "0".
+Input: a string num (digits only) and an integer k.
+Output: the smallest token as a string.
+string removeKDigits(string num, int k);
+
+num = "1432219",  k = 3   ->  "1219"
+num = "10200",    k = 1   ->  "200"
+num = "10",       k = 2   ->  "0"
+num = "12136",    k = 3   ->  "11"
+
+Limit: 1 <= k <= num.length() <= 10^5.
+
+--- Item 5 | Source: Lab Task 8.docx ---
+
+Task 5: Daily Temperatures   [MEDIUM]
+A weather app shows the temperature of every day of a month. For each day, the app wants to tell the user: "How many days must I wait for a warmer day?" If no warmer day ever comes, it shows 0.
+Input: an array temperatures of n daily temperatures.
+Output: an array answer where answer[i] is the number of days to wait after day i for a warmer temperature, or 0 if there is none.
+void dailyTemperatures(int temperatures[], int n, int answer[]);
+
+[73, 74, 75, 71, 69, 72, 76, 73]  ->  [1, 1, 4, 2, 1, 1, 0, 0]
+[30, 40, 50, 60]                  ->  [1, 1, 1, 0]
+[30, 60, 90]                      ->  [1, 1, 0]
+
+Limit: n <= 10^5. Checking every pair of days is too slow, so use a stack to solve it in a single pass.
+
+--- Item 6 | Source: Lab Task 8.docx ---
+
+Task 6: Rat in a Maze   [HARD]
+A hungry rat starts at the top-left corner (0, 0) of a maze. The maze is an N x M grid where 1 is an open path and 0 is a dead end. The food is at (fx, fy). The rat can move up, down, left or right (not diagonally) and cannot walk through a 0.
+Your task: tell whether the rat can reach the food. You do not need to print the path.
+Input: the maze, its size N and M, and the food position (fx, fy).
+Output: true if the food can be reached, otherwise false.
+Your program must contain:
+a Cell struct that stores the x and y of a cell,
+a visited 2D array, so no cell is processed twice,
+the function below, which must use a Stack<Cell> (no recursion).
+const int MAX = 10;
+bool isReachable(int maze[MAX][MAX], int N, int M, int fx, int fy);
+
+Example (N = 4, M = 4):
+1 0 1 1
+1 1 0 1
+0 1 1 1
+1 0 0 1
+
+Food at (2, 3): true.  Food at (3, 0): false (its neighbours are dead ends).
+
+--- Item 7 | Source: Lab Task 8.docx ---
+
+Task 7: 0/1 Knapsack (Backtracking with a Stack)   [HARD]
+A hiker is packing a backpack that can carry at most capacity kg. Each item has a weight and a survival value (how useful it is). Every item can be taken once or not at all. The hiker wants the highest total value without going over the weight limit.
+Input: arrays weights[] and values[], the number of items numItems (1 to 20) and capacity (1 to 100).
+Output: the maximum total value the hiker can carry.
+Solve it with backtracking using a stack. Do not use recursion or vectors.
+int knapsackBacktracking(int weights[], int values[], int numItems, int capacity);
+
+weights = {10, 20, 30},  values = {60, 100, 120},  capacity = 50
+Output: Maximum value: 220      // take the items of weight 20 and 30
+ 
+weights = {5, 4, 6, 3},  values = {10, 40, 30, 50},  capacity = 10
+Output: Maximum value: 90       // take the items of weight 4 and 3
+
+--- Item 8 | Source: Lab Task 8.docx ---
+
+Task 8: Largest Rectangle in Histogram   [HARD]
+An advertising company wants to put the largest possible rectangular billboard on a row of buildings. Every building is 1 unit wide, and the billboard must fit completely inside the skyline (it cannot be taller than any building it covers).
+Input: an array heights with the height of each building, and its size n.
+Output: the area of the largest rectangle.
+int largestRectangleArea(int heights[], int n);
+
+[2, 1, 5, 6, 2, 3]  ->  10     // bars 5 and 6: 2 x 5
+[2, 4]              ->  4
+[6]                 ->  6
+
+Limit: n <= 10^5. A solution that tries every rectangle is too slow.
+
+--- Item 9 | Source: Lab Task 8.docx ---
+
+Task 9: Longest Valid Parentheses   [HARD]
+A server writes a log of user activity: ( means a user logged in and ) means a user logged out. The admin wants to find the longest continuous part of the log that is perfectly matched, where every login has its own logout and nothing is left open.
+Input: a string s containing only ( and ).
+Output: the length of the longest continuous valid part.
+int longestValidParentheses(string s);
+
+"(()"      ->  2     // "()"
+")()())"   ->  4     // "()()"
+"()(())"   ->  6
+""         ->  0
+
+--- Item 10 | Source: Lab Task 8.docx ---
+
+Task 10: Basic Calculator   [HARD]
+You are writing the calculator for a mobile app. The user types an expression with whole numbers, +, -, brackets ( ) and spaces, and the app must show the answer. A - can also come before a bracket, such as -(2+3).
+Input: a valid expression string s (up to 10^4 characters).
+Output: the result as an integer. Do not use any built-in function that evaluates the string.
+int calculate(string s);
+
+"1 + 1"                  ->  2
+" 2-1 + 2 "              ->  3
+"(1+(4+5+2)-3)+(6+8)"    ->  23
+"-(2+3)"                 ->  -5
+"2-(5-6)"                ->  3
+
+Function | What it does
+Stack() | Creates an empty stack.
+~Stack() | Frees all remaining nodes.
+void push(const DataItem& item) | Adds item on top of the stack.
+void pop() | Removes the top element. Throws runtime_error if the stack is empty.
+DataItem peek() | Returns the top element without removing it. Throws runtime_error if the stack is empty.
+void clear() | Removes all elements.
+bool isEmpty() | Returns true if the stack has no elements.
+void print() | Prints the elements from top to bottom on one line.
+
+--- Item 11 | Source: Lab Task 8.pdf ---
+
+Task 1: Stack Class (Template)  
+Write a templated Stack class using a singly linked list, as shown in the Lab 08 manual. It must 
+have these functions: 
+Function 
+What it does 
+Stack() 
+Creates an empty stack. 
+~Stack() 
+Frees all remaining nodes. 
+void push(const DataItem& 
+item) 
+Adds item on top of the stack. 
+void pop() 
+Removes the top element. Throws runtime_error if the stack is 
+empty. 
+DataItem peek() 
+Returns the top element without removing it. Throws 
+runtime_error if the stack is empty. 
+void clear() 
+Removes all elements. 
+bool isEmpty() 
+Returns true if the stack has no elements. 
+void print() 
+Prints the elements from top to bottom on one line. 
+ 
+
+Example: 
+Stack<int> s; 
+s.push(10);  s.push(20);  s.push(30); 
+s.print();                  // 30 20 10 
+cout << s.peek() << endl;   // 30 
+s.pop(); 
+cout << s.peek() << endl;   // 20 
+s.clear(); 
+cout << s.isEmpty();        // 1
+
+--- Item 12 | Source: Lab Task 8.pdf ---
+
+Task 4: Rat in a Maze 
+A hungry rat starts at the top-left corner (0, 0) of a maze. The maze is an N x M grid where 1 is 
+an open path and 0 is a dead end. The food is at (fx, fy). The rat can move up, down, left or 
+right (not diagonally) and cannot walk through a 0. 
+Your task: tell whether the rat can reach the food. You do not need to print the path. 
+Input: the maze, its size N and M, and the food position (fx, fy). 
+Output: true if the food can be reached, otherwise false. 
+Your program must contain: 
+• 
+a Cell struct that stores the x and y of a cell, 
+• 
+a visited 2D array, so no cell is processed twice, 
+• 
+the function below, which must use a Stack<Cell> (no recursion). 
+const int MAX = 10; 
+bool isReachable(int maze[MAX][MAX], int N, int M, int fx, int fy); 
+ 
+Example (N = 4, M = 4): 
+1 0 1 1 
+1 1 0 1 
+0 1 1 1 
+1 0 0 1 
+ 
+Food at (2, 3): true.  Food at (3, 0): false (its neighbours are dead ends).
+
+--- Item 13 | Source: Task08_B.pdf ---
+
+Task 1: Stack Class (Template)   [EASY · COMPULSORY FOR ALL] 
+Write a templated Stack class using a singly linked list, as shown in the Lab 08 manual. It must 
+have these functions: 
+Function 
+What it does 
+Stack() 
+Creates an empty stack. 
+~Stack() 
+Frees all remaining nodes. 
+void push(const DataItem& 
+item) 
+Adds item on top of the stack. 
+void pop() 
+Removes the top element. Throws runtime_error if the stack is 
+empty. 
+DataItem peek() 
+Returns the top element without removing it. Throws 
+runtime_error if the stack is empty. 
+void clear() 
+Removes all elements. 
+bool isEmpty() 
+Returns true if the stack has no elements. 
+void print() 
+Prints the elements from top to bottom on one line. 
+ 
+
+Example: 
+Stack<int> s; 
+s.push(10);  s.push(20);  s.push(30); 
+s.print();                  // 30 20 10 
+cout << s.peek() << endl;   // 30 
+s.pop(); 
+cout << s.peek() << endl;   // 20 
+s.clear(); 
+cout << s.isEmpty();        // 1
+
+--- Item 14 | Source: Task08_B.pdf ---
+
+Task 3: Rat in a Maze   [HARD] 
+A hungry rat starts at the top-left corner (0, 0) of a maze. The maze is an N x M grid where 1 is 
+an open path and 0 is a dead end. The food is at (fx, fy). The rat can move up, down, left or 
+right (not diagonally) and cannot walk through a 0. 
+Your task: tell whether the rat can reach the food. You do not need to print the path. 
+Input: the maze, its size N and M, and the food position (fx, fy). 
+Output: true if the food can be reached, otherwise false. 
+Your program must contain: 
+
+• 
+a Cell struct that stores the x and y of a cell, 
+• 
+a visited 2D array, so no cell is processed twice, 
+• 
+the function below, which must use a Stack<Cell> (no recursion). 
+const int MAX = 10; 
+bool isReachable(int maze[MAX][MAX], int N, int M, int fx, int fy); 
+ 
+Example (N = 4, M = 4): 
+1 0 1 1 
+1 1 0 1 
+0 1 1 1 
+1 0 0 1 
+ 
+Food at (2, 3): true.  Food at (3, 0): false (its neighbours are dead ends).

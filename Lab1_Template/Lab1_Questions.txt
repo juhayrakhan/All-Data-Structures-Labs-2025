@@ -1,0 +1,234 @@
+LAB 1 — QUESTIONS (deduplicated)
+================================================
+Question prompts were consolidated from the supplied files. Exact and near-identical duplicates are included once.
+Variants with materially different requirements are retained.
+
+
+--- Item 1 | Source: Lab_Task_01_Section_H.pdf ---
+
+Question 1 — Function Template: isInRange
+Write a template function isInRange that determines whether a given value lies within a specified inclusive
+range, defined by a lower bound and an upper bound.
+Prototype: bool isInRange(T value, T low, T high)
+Example:
+isInRange(5, 1, 10)
+-> true
+(5 is between 1 and 10)
+isInRange(15, 1, 10)
+-> false
+(15 is outside the range)
+isInRange(1, 1, 10)
+-> true
+(bounds are inclusive)
+Question 2 — Function Template: maxOfThree
+Write a template function maxOfThree that accepts three values of the same generic type and returns the
+largest among them. The function should operate correctly for integer, floating-point, and character data
+types.
+Prototype: T maxOfThree(T a, T b, T c)
+Example:S
+maxOfThree(3, 7, 5)
+-> 7
+maxOfThree(2.5, 9.9, 4.4) -> 9.9
+maxOfThree('a', 'z', 'm') -> 'z'
+Question 3 — Class Template: Rectangle<T>
+Design a template class Rectangle that stores the width and height of a rectangle using a generic numeric
+type. The class should provide the following member functions:
+• area() computes and returns the area
+• perimeter() computes and returns the perimeter
+• scale(T factor) proportionally scales both dimensions by the given factor
+• isSquare() returns true if the rectangle's width and height are equal
+Example:
+
+Rectangle<int> r(4, 5);
+r.area();
+// 20
+r.perimeter();
+// 18
+r.scale(2);
+// width = 8, height = 10
+r.isSquare();
+// false
+Question 4 — Class Template: BankAccount<T>
+Design a template class BankAccount in which the account balance is represented using a generic type,
+allowing instantiation with either integer or floating-point balances. The class should provide the following
+member functions:
+• deposit(T amount) increases the balance by the specified amount
+• bool withdraw(T amount) decreases the balance by the specified amount, returning false and leaving
+the balance unchanged if the withdrawal would result in a negative balance
+• getBalance() returns the current balance
+Example:
+BankAccount<double> acc(200.0);
+acc.deposit(50.0);
+// balance = 250.0
+acc.withdraw(75.0);
+// true,
+balance = 175.0
+acc.withdraw(1000.0);
+// false, balance unchanged (175.0)
+
+--- Item 2 | Source: Lab01_SectionE.docx ---
+
+Questions
+1. Write a template function maxOfThree that accepts three values of the same generic type and returns the largest among them. The function should operate correctly for integer, floating-point, and character data types.
+Prototype: T maxOfThree(T a, T b, T c)
+2. Write a template function power that computes the value of a given base raised to a specified non-negative integer exponent. The function must be implemented using recursion; use of the standard library pow() function is not permitted.
+Prototype: T power(T base, int exponent)
+3. Design a template class Rectangle that stores the width and height of a rectangle using a generic numeric type. The class should provide the following member functions:
+area() computes and returns the area
+perimeter() computes and returns the perimeter
+scale(T factor). proportionally scales both dimensions by the given factor
+isSquare() returns true if the rectangle's width and height are equal
+4. Design a template class BankAccount in which the account balance is represented using a generic type, allowing instantiation with either integer or floating-point balances. The class should provide the following member functions:
+deposit(T amount) increases the balance by the specified amount
+bool withdraw(T amount) - decreases the balance by the specified amount, returning false and leaving the balance unchanged if the withdrawal would result in a negative balance
+getBalance() returns the current balance
+
+--- Item 3 | Source: Lab01_B.pdf ---
+
+Q1. Let A and B be two sets: (Data of sets can be integer, double or string) 
+A = {10.43,4.3,5.61,6.90,11.57,12.11,3.8,2.4,9.5} 
+B = {11.01,12.34,16.5,3.8,8.1,2.4,9.11,12.11,6.75,10.43,20.2,2.1,4.3} 
+Write the following template functions: 
+a. Symetric Diffference 
+Write a template function symmetricDifferenceSet to find the symmetric difference 
+between two sets. The symmetric difference between set A and set B is the set of elements 
+that are in either A or B but not in both. 
+Prototype: T* symmetricDifferenceSets(T *set1, int size1, T *set2, int size2) 
+b. Cartesian Product of Two Sets 
+Write a template function cartesianProductSets that finds the Cartesian product of two 
+sets. The Cartesian product of two sets A and B is the set of all ordered pairs (a, b) where a is 
+in A and b is in B. 
+Prototype: pair<T, T>* cartesianProductSets(T *set1, int size1, T *set2, int size2); 
+c. Subset  
+Write a template function isSubset that checks whether one set is a subset of another. Set 
+A is a subset of set B if all elements of A are also elements of B. 
+Prototype: bool isSubset(T *set1, int size1, T *set2, int size2); 
+d. Find Element 
+
+Return True if the Element exists in the set 
+Prototype: bool elementExists(T *set, int size, T element)
+
+--- Item 4 | Source: Lab01_B.pdf ---
+
+Q2. You are provided with the dataset of university employees (teachers). This datasets 
+contains names, no. of sections, department and subject. Your task is to write a function 
+that removes duplicates of any type of dataset provided. Write a template function 
+RemoveDups() that removes duplicate vales form the provided dataset. 
+Hint: assume 1subject is only taught by 1 teacher or 1 teacher can teach one subject at a time. 
+Example : 
+No_of_Sections = {2, 3, 1 , 3, 4} 
+Subject = {Math, OOP, DataStructure, OOP} 
+Name data = {sara, mary, larry, sara} 
+The function should return {2,3,1} and {sara, mary,larry} when provided with the respective 
+dataset. 
+Prototype: T* RemoveDups(T *, int )
+
+--- Item 5 | Source: Lab01_B.pdf ---
+
+Q3. Write a C++ program to implement a class called BankAccount that has member 
+variables for account number and balance. Include member functions to deposit and 
+withdraw money from the account. 
+1. Deposite 
+Prototype: T deposite() 
+2. Withdraw 
+Prototype: T withdraw()
+
+--- Item 6 | Source: Lab01_B.pdf ---
+
+Q4. Write a template function absDifference that computes and returns the absolute 
+difference between two values of the same generic type. Students should give due 
+consideration to the behaviour of this function when instantiated with unsigned data 
+types. 
+Prototype: T absDifference(T a, T b)
+
+--- Item 7 | Source: Lab01_C.pdf ---
+
+Q1. Define a template class Container for storing different type of values e.g. int, double, 
+float etc. This container would keep same type of values/elements at a time. The 
+Container class should consist of the following member variables: 
+• T * values; A pointer to set of values it contains. This member points to the 
+dynamically allocated array (which you will be allocating in constructor). 
+• capacity; An integer that shows total capacity of the container. 
+counter; An integer counter variable which increments upon every insertion operation and 
+decrements upon removal of any element; representing total number of elements currently 
+present in the container. 
+The container should consist of following functions: 
+• constructor with capacity as parameter 
+• isFull which will return true if counter reaches capacity otherwise false 
+• insert which will receive a value of some type (int/double/float) and insert into the 
+container if it’s not already full 
+Prototype: void insert(T) 
+• search which will return true if the container contains value passed as parameter 
+Prototype: bool search(T) 
+
+• remove which will remove a value, if exists, from the container and shifts all 
+subsequent values one index back. 
+Prototype: void remove(T) 
+print which will print all values contained in the container.
+
+--- Item 8 | Source: Lab01_C.pdf ---
+
+Q2. Let A and B be two sets: (Data of sets can be integer, double or string) 
+A = {10.43,4.3,5.61,6.90,11.57,12.11,3.8,2.4,9.5} 
+B = {11.01,12.34,16.5,3.8,8.1,2.4,9.11,12.11,6.75,10.43,20.2,2.1,4.3} 
+Write the following template functions: 
+a. Union 
+Find the union of A and B. The union of A and B is the set that contains those elements that 
+are either in A or in B, or in both 
+Prototype: T* unionSets(T *set1, int size1, T *set2, int size2, int resultsize) 
+b. Intersection 
+Find the intersection of A and B. The intersection of A and B is the set that contains those 
+elements that are in both A and B. 
+Prototype: T* intersectionSets(T *set1, int size1, T *set2, int size2, int resultsize) 
+c. Disjoint 
+Return true if A and B are disjoint sets (sets having no common elements). 
+Prototype: bool areDisjoint(T *set1, int size1, T *set2, int size2) 
+d. Find Element 
+Return True if the Element exists in the set 
+Prototype: bool elementExists(T *set, int size, T element)
+
+--- Item 9 | Source: Lab01_C.pdf ---
+
+Q3. Write a template function swapValues that accepts two variables of the same generic 
+type by reference and interchanges their values. 
+Prototype: void swapValues(T &a, T &b)
+
+--- Item 10 | Source: Lab01_C.pdf ---
+
+Q4. Write a template function maxOfThree that accepts three values of the same generic 
+type and returns the largest among them. The function should operate correctly for 
+integer, floating-point, and character data types. 
+Prototype: T maxOfThree(T a, T b, T c)
+
+--- Item 11 | Source: Lab01.pdf ---
+
+Q2. Write a template function isInRange that determines whether a given value lies within 
+a specified inclusive range, defined by a lower bound and an upper bound. 
+Prototype: bool isInRange(T value, T low, T high)
+
+--- Item 12 | Source: Lab01.pdf ---
+
+Q3. Design a template class Rectangle that stores the width and height of a rectangle using 
+a generic numeric type. The class should provide the following member functions: 
+ 
+area()   computes and returns the area 
+ 
+perimeter()  computes and returns the perimeter 
+ 
+scale(T factor).  proportionally scales both dimensions by the given factor 
+ 
+isSquare()  returns true if the rectangle's width and height are equal
+
+--- Item 13 | Source: Lab01.pdf ---
+
+Q4. Design a template class Fraction that stores a numerator and a denominator using a 
+generic integer-like type. The class should provide the following member functions: 
+ 
+add(Fraction<T> other)  returns a new Fraction representing the sum of the current 
+fraction and the supplied fraction 
+ 
+multiply(Fraction<T> other)  returns a new Fraction representing the product of the 
+current fraction and the supplied fraction 
+ 
+simplify()  reduces the fraction to its lowest terms using the greatest common divisor 
+(GCD)

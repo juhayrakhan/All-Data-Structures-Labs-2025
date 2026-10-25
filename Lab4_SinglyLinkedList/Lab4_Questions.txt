@@ -1,0 +1,265 @@
+LAB 4 — QUESTIONS (deduplicated)
+================================================
+Question prompts were consolidated from the supplied files. Exact and near-identical duplicates are included once.
+Variants with materially different requirements are retained.
+
+
+--- Item 1 | Source: Lab_Task_4.docx ---
+
+Task 1: ArrayList Class — Core Operations
+Implement the ArrayList class (int-based) with the following members:
+class ArrayList {
+private:
+    int* arr;
+    int capacity;
+    int count;
+public:
+    ArrayList(int size);
+    ~ArrayList();
+    bool isFull() const;
+    bool isEmpty() const;
+    int  getSize() const;
+    bool insert(int index, int value);
+    bool remove(int index);
+    int  search(int value) const;
+    int  get(int index) const;
+    bool replace(int index, int value);
+};
+
+Requirements:
+insert(index, value): shift elements right to open a slot; fail (return false) if the list isFull() or the index is out of range (0 to count inclusive).
+remove(index): shift elements left to close the gap; fail (return false) if the list isEmpty() or the index is out of range (0 to count-1).
+search(value): linear search; return the index of the first match, or -1 if not found.
+get(index): return the value stored at the given index; fail by printing an error message and returning -1 if the list isEmpty() or the index is out of range (0 to count-1).
+replace(index, value): overwrite the element at the given index with the new value; fail (return false) and leave the list unchanged if the list isEmpty() or the index is out of range (0 to count-1).
+This class is the foundation for Task 2 and Task 3 — add the new functions listed below directly to it.
+
+--- Item 2 | Source: Lab_Task_4.docx ---
+
+Task 2: ArrayList — reverse() and removeDuplicates()
+Add the following two member functions to the ArrayList class from Task 1:
+void reverse();
+int  removeDuplicates();
+
+reverse()
+Reverse the order of the currently stored elements in place (do not use a second array).
+Example: [10, 20, 30, 40] -> [40, 30, 20, 10].
+removeDuplicates()
+Remove duplicate values from the list, keeping only the first occurrence of each value and preserving the original relative order.
+Shift the remaining elements left to close gaps and update count accordingly.
+Return the number of duplicate elements that were removed.
+Do not use an auxiliary array/vector larger than a small counting helper if needed; work within the existing array.
+Example: [10, 20, 10, 30, 20, 10] -> list becomes [10, 20, 30], function returns 3.
+
+--- Item 3 | Source: Lab_Task_4.docx ---
+
+Task 3: ArrayList — findMinMax() and rotateLeft()
+Add the following two member functions to the same ArrayList class:
+void findMinMax(int& minVal, int& maxVal) const;
+bool rotateLeft(int k);
+
+findMinMax(minVal, maxVal)
+Traverse the list once, updating minVal and maxVal by reference to the smallest and largest values stored.
+Edge case: if the list isEmpty(), print an error message and leave minVal and maxVal unchanged.
+rotateLeft(k)
+Rotate the elements of the list to the left by k positions.
+If k is larger than count, use k % count to avoid redundant full rotations.
+Return false (and leave the list unchanged) if the list isEmpty(); otherwise perform the rotation and return true.
+Example: [1, 2, 3, 4, 5] rotated left by 2 -> [3, 4, 5, 1, 2].
+
+--- Item 4 | Source: Lab_Task_4.docx ---
+
+Task 4: Singly Linked List 
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int val);
+};
+
+class LinkedList {
+private:
+    Node* head;
+public:
+    LinkedList();
+    ~LinkedList();
+    bool isEmpty() const;
+    void insertAtStart(int value);
+    void insertAtEnd(int value);
+    int  search(int value) const;
+    int  countNodes() const;
+};
+
+Requirements:
+insertAtStart(value): create a new node and make it the new head (same idea as in the manual).
+insertAtEnd(value): traverse to the last node and attach the new node there; if the list isEmpty(), the new node simply becomes head.
+search(value): return the zero-based index of the first node containing value, or -1 if not found.
+countNodes(): return the total number of nodes currently in the list (0 for an empty list).
+~LinkedList(): free every node so there are no memory leaks.
+Example: insertAtStart(10); insertAtStart(20); insertAtEnd(30); -> list is 20 -> 10 -> 30 -> NULL, countNodes() returns 3, search(10) returns 1.
+
+--- Item 5 | Source: Lab_Task_4_Section_H (3).docx ---
+
+Question 1: Generic Linked List Class using Templates in C++ (Must for all sections)
+Class Requirements
+You need to design a singly linked list class using templates.
+It should have:
+Node<T> class: contains
+T data
+Node<T>* next
+LinkedList<T> class: contains
+Node<T>* head (pointer to first node)
+int counter (tracks number of nodes)
+Note: head and counter must be declared public (not private) — the provided test file accesses list.counter directly.
+Operations to Implement:
+Insertion Functions
+void insertAtHead(T item)
+Insert a new node at the start of the list.
+void insertAtTail(T item)
+Insert a new node at the end of the list.
+bool insertAfter(T itemToInsert, T existingItem)
+Find existingItem and insert itemToInsert after it. Return true if existingItem was found and the insertion happened, false otherwise.
+bool insertBefore(T itemToInsert, T existingItem)
+Find existingItem and insert itemToInsert before it. Return true if existingItem was found and the insertion happened, false otherwise.
+Utility Functions
+bool isEmpty() const
+Returns true if the list has no elements.
+int search(T item) const
+Returns the 0-based index of the first node containing item, or -1 if the item is not found.
+void print() const
+Prints all elements of the list.
+
+--- Item 6 | Source: Lab_Task_4_Section_H (3).docx ---
+
+Question 2
+Implement a function to count how many times a given value appears:
+int countFrequency(double target);
+
+Task: Traverse from head to nullptr and count matches.
+Example:
+List: 10 -> 20 -> 10 -> 30 -> 10 -> NULL
+Input: target = 10
+Return: 3
+
+--- Item 7 | Source: Lab_Task_4_Section_H (3).docx ---
+
+Question 3
+Problem Statement:
+Add a member function to LinkedList:
+void reverseKGroup(int k);
+This function must reverse the nodes of the list k at a time and update head accordingly. If the number of nodes in the final remaining block is less than k, leave them in their original order.
+Example:
+Input List: 10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 70 -> 80 -> NULL, with k = 3
+Output List: 30 -> 20 -> 10 -> 60 -> 50 -> 40 -> 70 -> 80 -> NULL
+
+--- Item 8 | Source: Lab_Task_4_Section_H (3).docx ---
+
+Question 4
+Write a member function for the singly linked list class:
+void segregateEvenOdd();
+Modify the list so all nodes containing even values appear before all odd values, while preserving the relative original order of elements within both subsets.
+Requirements:
+Do not allocate new nodes or use an auxiliary container (array/vector).
+Rearrange exclusively by relinking pointers.
+Example:
+Input: 17 -> 15 -> 8 -> 12 -> 10 -> 5 -> 4 -> 1 -> 7 -> NULL
+Output: 8 -> 12 -> 10 -> 4 -> 17 -> 15 -> 5 -> 1 -> 7 -> NULL
+
+--- Item 9 | Source: Lab Task 4_B.pdf ---
+
+Task 0: Generic Linked List Class using Templates in C++ (Must for all sections) 
+Class Requirements 
+You need to design a singly linked list class using templates. 
+ 
+It should have: 
+• Node<T> class: contains 
+▪ T data 
+▪ Node<T>* next 
+ 
+• LinkedList<T> class: contains 
+▪ Node<T>* head (pointer to first node) 
+▪ int counter (tracks number of nodes) 
+ 
+Operations to Implement: 
+ 
+Insertion Functions 
+• insertAtHead(T item) 
+Insert a new node at the start of the list. 
+ 
+• insertAtTail(T item) 
+Insert a new node at the end of the list. 
+• insertAfter(T itemToInsert, T existingItem) 
+Find existingItem and insert itemToInsert after it. 
+ 
+• insertBefore(T itemToInsert, T existingItem) 
+Find existingItem and insert itemToInsert before it. 
+
+Utility Functions 
+• isEmpty() 
+Returns true if the list has no elements. 
+• search(T item) 
+• print() 
+Prints all elements of the list.
+
+--- Item 10 | Source: Lab Task 4_B.pdf ---
+
+Question 2 
+• 
+Problem Statement: 
+Add a member function to LinkedList: 
+  
+void reverseKGroup(int k); 
+ 
+This function must reverse the nodes of the list k  at a time and update head accordingly. 
+If the number of nodes in the final remaining block is less than k, leave them in their 
+original order. 
+• 
+Example: 
+o Input List: 10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 70 -> 80 -> NULL, with k = 3 
+o Output List: 30 -> 20 -> 10 -> 60 -> 50 -> 40 -> 70 -> 80 -> NULL
+
+--- Item 11 | Source: Lab Task 4_C.pdf ---
+
+Question 1 
+Add a member function to find both the smallest and largest values stored in the list: 
+ 
+void findMinMax(double& minVal, double& maxVal); 
+• 
+Task: Traverse the list once. Compare each node's data to track and update the smallest 
+and largest values seen so far. 
+• 
+Edge Case: If the list is empty, display an error message and make no updates
+
+--- Item 12 | Source: Lab Task 4_C.pdf ---
+
+Question 2 
+Implement a method for the linked list class to check whether the sequence forms a palindrome: 
+ 
+bool isPalindrome(); 
+ 
+• 
+Requirements: 
+o Traverse the list using the slow and fast pointer technique (Tortoise and Hare) to 
+locate the midpoint. 
+o Reverse the second half of the list in-place. 
+o Compare the first and second halves for equality. 
+o Restore the list back to its original structure and orientation before returning true 
+or false.
+
+--- Item 13 | Source: Lab Task 4_C.pdf ---
+
+Question 3 
+Write a member function: 
+ 
+void rotateRight(int k); 
+Given a singly linked list, rotate the list to the right by k places. 
+• 
+Requirements: 
+o If k is larger than the length of the list N, take k mod N to avoid redundant 
+complete rotations. 
+o Connect the original tail node to the original head node to form a temporary ring, 
+traverse to the new break point, set the new head, and sever the ring with nullptr. 
+• 
+Example: 
+o Input: 1 -> 2 -> 3 -> 4 -> 5 -> NULL, k = 2 
+o Output: 4 -> 5 -> 1 -> 2 -> 3 -> NULL

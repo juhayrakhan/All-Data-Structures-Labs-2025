@@ -1,0 +1,186 @@
+LAB 9 — QUESTIONS (deduplicated)
+================================================
+Question prompts were consolidated from the supplied files. Exact and near-identical duplicates are included once.
+Variants with materially different requirements are retained.
+
+
+--- Item 1 | Source: Task_J.pdf ---
+
+Question 1  
+Write a recursive function sumOfNodes(Node* root) that returns the sum of the values of all 
+the nodes in a binary tree. If the tree is empty, the function should return 0. 
+Example: 
+ 
+Figure 1: Example tree for sumOfNodes. 
+Output: 
+30 
+Explanation: 5 + 3 + 8 + 1 + 4 + 9 = 30, so the function will return 30.
+
+--- Item 2 | Source: Task_J.pdf ---
+
+Question 2  
+A binary tree is height-balanced if, for every node, the heights of its left and right subtrees 
+differ by at most 1. Write a function isBalanced(Node* root) that returns “True” if the tree is 
+height-balanced and “False” otherwise. 
+Example: 
+ 
+Figure 2: At the root the subtree heights are 3 and 1, so the tree is not balanced. 
+
+Output: 
+False 
+Explanation: At the root (1), the left subtree (2, 4, 5, 6) has height 3 and the right subtree (3) 
+has height 1. The difference is 2, which is more than 1, so the tree is not balanced. 
+Challenge: write the function so that every node is visited only once (O(n)), by returning the 
+height and the balance check together. 
+14 22
+
+--- Item 3 | Source: Task_J.pdf ---
+
+Question 3  
+Give the root a horizontal distance (column) of 0. For any node at column c, its left child is at 
+column c - 1 and its right child is at column c + 1. Write a function verticalOrder(Node* root) 
+that prints the nodes column by column, from the leftmost column to the rightmost. Inside a 
+column, print the nodes from top to bottom, and if two nodes are at the same level in the same 
+column, print the left one first. 
+Example: 
+ 
+Figure 3: Horizontal distance (column) of every node. 
+Output: 
+4 
+2 
+1 5 6 
+3 8 
+7 
+9
+
+--- Item 4 | Source: Task09_B.pdf ---
+
+Question 1  
+The root of a tree is at level 0, its children are at level 1, and so on. Write a function 
+printLevelK(Node* root, int k) that prints all the nodes at level k from left to right. If the tree 
+has no node at level k, the function should print nothing. 
+Example: 
+Input:  k = 2 
+ 
+Figure 1: The nodes at level k = 2 are highlighted. 
+Output: 
+2 6 11 
+Explanation: Level 0 contains 8, level 1 contains 4 and 9, and level 2 contains 2, 6 and 11. For 
+k = 1 the output would be 4 9.
+
+--- Item 5 | Source: Task09_B.pdf ---
+
+Question 2  
+The left view of a binary tree is the set of nodes that can be seen when the tree is viewed from 
+the left side, i.e. the first node of every level. Write a function leftView(Node* root) that prints 
+the left view of the tree from top to bottom. 
+Example: 
+ 
+Figure 2: The left view is the first node of every level. 
+Output: 
+1 2 4 7
+
+--- Item 6 | Source: Task09_B.pdf ---
+
+Question 3 
+The lowest common ancestor (LCA) of two nodes n1 and n2 is the deepest node that has both 
+n1 and n2 as descendants (a node is also a descendant of itself). Write a function 
+findLCA(Node* root, int n1, int n2) that returns the LCA of n1 and n2. Assume that all values 
+are unique and both values may or may not present in the tree. The tree is not a binary search 
+tree, so the values cannot be used to decide whether to go left or right. 
+Example: 
+Input:  n1 = 7, n2 = 6 
+Input:  n1 = 7, n2 = 8 
+Input:  n1 = 4, n2 = 5 
+ 
+ 
+Figure 3: LCA of 7 and 6 (blue) is 5 (orange). 
+ 
+Output: 
+5 
+3 
+5
+
+--- Item 7 | Source: Task09_BinaryTree.docx ---
+
+Questions
+Note: Use the Node structure from the Lab 11 manual (data, left and right pointers) for all the questions. For every question, build the example tree in main() by linking the nodes yourself, call your function and print the result. Questions 1 to 5 are easy, questions 6 to 10 are of medium level and questions 11 to 15 are hard.
+Question 1 (Easy)
+The values in a binary tree are not stored in any order, so the largest or the smallest value can be at any position in the tree. Write two recursive functions findMax(Node* root) and findMin(Node* root) that return the largest and the smallest value in the tree. Do not copy the values into an array or any other data structure.
+Example:
+
+Figure 2: The maximum (orange) and minimum (blue) values are both leaves.
+Output:
+Maximum: 31
+Minimum: 2
+Explanation: The largest value 31 and the smallest value 2 are both leaves in the left subtree, and the root (12) is neither the maximum nor the minimum, so every node has to be compared.
+Question 2 (Medium)
+The left view of a binary tree is the set of nodes that can be seen when the tree is viewed from the left side, i.e. the first node of every level. Write a function leftView(Node* root) that prints the left view of the tree from top to bottom.
+Example:
+
+Figure 6: The left view is the first node of every level.
+Output:
+1 2 4 7
+Explanation: The first node of each level is 1 (level 0), 2 (level 1), 4 (level 2) and 7 (level 3). Node 4 is a right child and node 7 is in the right subtree, but they are still visible from the left because no other node comes before them on their level.
+Hint: use a level order traversal with a queue, or a recursive function that also passes the current level.
+Question 3 (Hard)
+You are given the preorder and inorder traversals of a binary tree in two arrays. All values are unique. Write a function buildTree(int preorder[], int inorder[], int n) that constructs the original binary tree and returns its root. To verify your tree, print its level order traversal.
+Example:
+Input:  Preorder: 1 2 4 7 3 5 6 8
+Input:  Inorder:  4 7 2 1 5 3 8 6
+
+Figure 11: The tree constructed from the given traversals.
+Output:
+Level order: 1 2 3 4 5 6 7 8
+Explanation: The first value of the preorder (1) is the root. In the inorder array, everything to the left of 1 (4 7 2) belongs to the left subtree and everything to the right (5 3 8 6) belongs to the right subtree. Applying the same rule recursively on each part gives the tree shown, whose level order traversal is 1 2 3 4 5 6 7 8.
+Hint: keep an index into the preorder array that moves forward every time a node is created.
+read one value at a time in deserialize.
+
+--- Item 8 | Source: Task09_BinaryTree(Section D).docx ---
+
+Question 1 
+Write a recursive function sumOfNodes(Node* root) that returns the sum of the values of all the nodes in a binary tree. If the tree is empty, the function should return 0.
+Example:
+
+Figure 1: Example tree for sumOfNodes.
+Output:
+30
+
+--- Item 9 | Source: Task09_BinaryTree(Section D).docx ---
+
+Question 3
+The lowest common ancestor (LCA) of two nodes n1 and n2 is the deepest node that has both n1 and n2 as descendants (a node is also a descendant of itself). Write a function findLCA(Node* root, int n1, int n2) that returns the LCA of n1 and n2. Assume that all values are unique and both values are present in the tree. The tree is not a binary search tree, so the values cannot be used to decide whether to go left or right.
+Example:
+Input:  n1 = 7, n2 = 6
+Input:  n1 = 7, n2 = 8
+Input:  n1 = 4, n2 = 5
+
+Figure 9: LCA of 7 and 6 (blue) is 5 (orange).
+Output:
+5
+3
+5
+Explanation: 7 and 6 are both in the subtree of 5, and 5 is the deepest such node, so the LCA is 5. 7 is in the left subtree of the root and 8 is in the right subtree, so the LCA is the root 3. 4 is a descendant of 5, so the LCA of 4 and 5 is 5 itself.
+
+--- Item 10 | Source: Task09_BinaryTree(Section H).docx ---
+
+Question 3 
+You are given the preorder and inorder traversals of a binary tree in two arrays. All values are unique. Write a function buildTree(int preorder[], int inorder[], int n) that constructs the original binary tree and returns its root. To verify your tree, print its level order traversal.
+Example:
+Input:  Preorder: 1 2 4 7 3 5 6 8
+Input:  Inorder:  4 7 2 1 5 3 8 6
+
+Figure 11: The tree constructed from the given traversals.
+Output:
+Level order: 1 2 3 4 5 6 7 8
+Explanation: The first value of the preorder (1) is the root. In the inorder array, everything to the left of 1 (4 7 2) belongs to the left subtree and everything to the right (5 3 8 6) belongs to the right subtree. Applying the same rule recursively on each part gives the tree shown, whose level order traversal is 1 2 3 4 5 6 7 8.
+Hint: keep an index into the preorder array that moves forward every time a node is created.
+
+--- Item 11 | Source: Task10.docx ---
+
+Q1. University maintains an organizational hierarchy in the form of a Binary Search Tree  (BST), where each employee is uniquely identified by an integer ID. Due to the hierarchical  structure of the system, the relationship between two employees must be determined  efficiently whenever a common reporting ancestor is required. 
+Given the root of a BST and the IDs of two existing employees, X and Y, determine their  Lowest Common Ancestor (LCA). The LCA is defined as the deepest node in the tree that has  both employees as descendants, where a node is considered a descendant of itself. The two  employees may belong to different subtrees, one employee may be an ancestor of the other, or  one of them may be the root of the tree. 
+Your solution must return the employee ID of the LCA while correctly handling all possible  relative positions of the two target nodes. The BST may be highly unbalanced, and its height  may be equal to the total number of nodes. The solution must preserve the original tree structure  and must not modify any node values or pointers. Assume that all employee IDs are unique and  both target employees exist in the BST. 
+Input: The root of a BST containing N unique integer IDs, followed by two target IDs, X and Y. Output: The ID of the lowest common ancestor of X and Y. 
+Input:
+Output

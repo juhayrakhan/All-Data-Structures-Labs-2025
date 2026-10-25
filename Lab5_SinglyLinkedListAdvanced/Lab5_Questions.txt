@@ -1,0 +1,197 @@
+LAB 5 — QUESTIONS (deduplicated)
+================================================
+Question prompts were consolidated from the supplied files. Exact and near-identical duplicates are included once.
+Variants with materially different requirements are retained.
+
+
+--- Item 1 | Source: Lab_Task_5_Section_D.docx ---
+
+Question 1
+Remove Duplicates
+A singly linked list may contain the same value more than once. Write a function that keeps only the first occurrence of every value and deletes the rest:
+void removeDuplicates();
+Task:
+Take the first node of the list and compare it with every node that comes after it.
+If a later node has the same value, delete that node from the list by linking its previous node to its next node, and free its memory using delete.
+Repeat the same process for the second node, the third node, and so on, until you reach the end of the list.
+The first occurrence of each value must stay in the list, and the original order of these nodes must not change.
+Handle the case where the list is empty or has only one node (the list stays as it is).
+Constraints:
+Only the head pointer of the singly linked list may be used. Do not create a second list, an array, or any other helper container.
+Every removed node must be deleted so that no memory is leaked, and no node may be left pointing to a deleted node.
+Example 1:
+Input:   3 -> 5 -> 3 -> 7 -> 5 -> 3 -> NULL
+
+The first 3 is kept; the 3 at position 3 and the 3 at position 6
+are deleted. The first 5 is kept; the 5 at position 5 is deleted.
+7 appears only once, so it is kept.
+
+Output:  3 -> 5 -> 7 -> NULL
+Example 2:
+Input:   4 -> 4 -> 4 -> 4 -> NULL
+Output:  4 -> NULL
+
+--- Item 2 | Source: Lab_Task_5_Section_D.docx ---
+
+Question 2
+Reconcile Opposing Pairs
+A financial ledger stores signed transaction amounts (positive = credit, negative = debit):
+void reconcileOpposingPairs();
+Task:
+Scan the list from head to tail. Whenever two adjacent nodes sum exactly to zero (e.g., 40.0 followed by -40.0), delete both nodes and free their memory.
+Because deleting an adjacent pair can cause newly adjacent surrounding nodes to also sum to zero (a chain reaction), continue resolving until no adjacent pair in the list sums to zero.
+If the entire list annihilates through cascading deletions, set head = nullptr.
+Correctly handle cascade deletions that occur at the head boundary, at interior nodes, and at the trailing tail.
+Example:
+Input:  10 -> 5 -> -5 -> -10 -> NULL
+Step 1: 5 and -5 are adjacent and sum to zero -> delete both.
+After step 1: 10 -> -10 -> NULL
+Step 2: 10 and -10 are now newly adjacent and sum to zero -> delete both (cascade).
+Output: NULL  (head = nullptr, list fully annihilated)
+
+--- Item 3 | Source: Lab_Task_5_Section_D.docx ---
+
+Question 3
+Pivot Partition and Evict
+Given an unsorted list and a fixed pivot value, partition the list around it:
+void pivotPartitionAndEvict(T pivot);
+Task:
+Traverse the list once. Any node whose value is strictly equal to pivot must be deleted from the list and its memory freed.
+Among the remaining nodes, those with values strictly less than pivot must be unlinked from their current position and re-inserted at the head, preserving their original relative order.
+Among the remaining nodes, those with values strictly greater than pivot must be unlinked from their current position and re-inserted at the tail, preserving their original relative order.
+Use zero auxiliary data structures (no arrays, vectors, or a second list) — all movement must be pure pointer rewiring. Memory must only be freed for nodes matching pivot.
+Example:
+Input:  5 -> 1 -> 8 -> 5 -> 3 -> 9 -> 5 -> NULL      (pivot = 5)
+Nodes equal to 5 (positions 1, 4, 7) are deleted and freed.
+Remaining nodes, in original order: 1, 8, 3, 9.
+Less than 5 (1, 3) move to head, preserving order. Greater than 5 (8, 9) move to tail, preserving order.
+Output: 1 -> 3 -> 8 -> 9 -> NULL
+
+--- Item 4 | Source: Lab_Task_5_Section_H.docx ---
+
+Question 1
+Run-Length Encode In-Place
+Compress consecutive identical values in a single pass:
+void runLengthEncodeInPlace();
+Task:
+Traverse the list once from head to tail, detecting contiguous runs of identical values (e.g., 5.0 -> 5.0 -> 5.0 -> 5.0).
+For each run, delete all duplicate nodes from the middle/tail of the run, freeing their memory with delete, leaving only the primary (first) node of the run.
+Allocate one new node containing the run's count (e.g., 4.0) and insert it immediately before the surviving primary node.
+If the run started at the beginning of the list, the new count node becomes the new head.
+Example:
+Input:  7 -> 7 -> 7 -> 2 -> 9 -> 9 -> NULL
+Output: 3 -> 7 -> 1 -> 2 -> 2 -> 9 -> NULL
+
+--- Item 5 | Source: Lab Task 5_B.pdf ---
+
+Question 1 
+Manage an active task queue where each task has a certain number of remaining execution 
+credits.  
+void processExecutionEpoch(T creditCost); 
+• 
+Task: 
+o Traverse every node in the queue: 
+▪ 
+Deduct creditCost from current->data for each task. 
+▪ 
+If current->data <= 0.0 at any stage, the task is considered complete. 
+Remove the node from the queue and deallocate its memory, correctly 
+handling deletion from the head, middle, or tail.   
+▪ 
+Tasks that remain active after processing should retain their relative order. 
+• 
+Constraints: Must handle cases where the entire list depletes to empty, or where every 
+surviving node rotates to the tail.
+
+--- Item 6 | Source: Lab Task 5_B.pdf ---
+
+Question 2 
+ 
+Simulate an execution call-stack where exception tokens trigger stack unwinding: 
+void unwindExceptionFrames(T exceptionToken); 
+• 
+Task: 
+o Search the list for a node with value equal to exceptionToken. 
+o When found: 
+1. Search backward to find the nearest prior "catch" node (identified by a 
+negative value, data < 0.0). 
+
+2. Delete all intermediate frame nodes lying between the catch node and the 
+exception node (including the exception node itself). 
+3. If no catch node exists prior to the exception node, delete every node from 
+the head up to and including the exception node, updating head. 
+4. Allocate an error-code node with value 9999.0 and insert it immediately 
+after the catch node (or at the new head if unhandled). 
+• 
+Constraints: Must free all deleted stack frames using delete and cleanly update 
+boundary pointers.
+
+--- Item 7 | Source: Lab Task 5_B.pdf ---
+
+Question 3 
+ 
+Identify and hoist elements causing inversion inversions in a semi-sorted list: 
+void hoistInversionsToHead(); 
+• 
+Task: 
+o Scan the list from start to finish tracking the maximum value observed so far. 
+o Any node whose data is strictly smaller than the maximum seen so far (Node-
+>data < maxSeen) represents an inversion anomaly. 
+o Unlink that anomalous node from its current position (middle or tail) and bridge 
+its predecessor to its successor. 
+o Insert the extracted node at the head of the list. 
+o Continue traversing forward until the tail is reached. 
+• 
+Constraints: No dynamic allocation (new) or deallocation (delete). Pure pointer 
+unlinking and re-insertion. Must correctly update head repeatedly.
+
+--- Item 8 | Source: Lab Task 5_C.pdf ---
+
+Question 1 
+An OS scheduler organizes tasks in a singly linked list. Each node contains the following fields: 
+{ 
+    T taskId; 
+    T priority; 
+}; 
+Implement the function: 
+void promoteAndDemoteThreshold(T minCutoff, T maxCutoff); 
+Task 
+Reorganize the linked list according to the following rules: 
+• 
+Nodes with priority < minCutoff are demoted: remove them from their current 
+position and move them to the tail of the list. 
+• 
+Nodes with priority > maxCutoff are promoted: remove them from their current 
+position and move them to the head of the list. 
+• 
+Nodes with minCutoff <= priority <= maxCutoff remain in the middle section of 
+the list. Maintaining the relative internal order of all tasks within each category 
+Constraints 
+• 
+No node allocations or memory deallocations are allowed (new node). 
+• 
+The list must be rearranged using pointer rewiring only. 
+
+• 
+Correctly update the head pointer and ensure the last node points to nullptr. 
+• 
+Handle all edge cases, including empty lists and single-node list.
+
+--- Item 9 | Source: Lab Task 5_C.pdf ---
+
+Question 2 
+ 
+Clean continuous data by collapsing triplets: 
+void collapseTripletsToMedian(); 
+• 
+Task: 
+o Process the list in disjoint groups of 3 nodes: (A - B - C) 
+o Within each group, determine which of the three nodes holds the median value. 
+o Delete the two non-median nodes from the list and free their memory using 
+delete. 
+o Keep the single surviving median node in the list. 
+o If the final remaining block has only 1 or 2 nodes (insufficient for a triplet), leave 
+them untouched. 
+• 
+Constraints: Must correctly relink across deleted boundaries so the list remains intact, 
+updating head if the original head was not the median of the first triplet.

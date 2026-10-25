@@ -1,0 +1,18 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="README.txt" />
+  </Folder>
+  <Project Path="Lab1_Template/Lab1_Template.vcxproj" />
+  <Project Path="Lab2_SingleDimensionalArray/Lab2_SingleDimensionalArray.vcxproj" />
+  <Project Path="Lab3_MultiDimensionalArray/Lab3_MultiDimensionalArray.vcxproj" />
+  <Project Path="Lab4_SinglyLinkedList/Lab4_SinglyLinkedList.vcxproj" />
+  <Project Path="Lab5_SinglyLinkedListAdvanced/Lab5_SinglyLinkedListAdvanced.vcxproj" />
+  <Project Path="Lab6_DoublyLinkedList/Lab6_DoublyLinkedList.vcxproj" />
+  <Project Path="Lab7_Queue/Lab7_Queue.vcxproj" />
+  <Project Path="Lab8_Stack/Lab8_Stack.vcxproj" />
+  <Project Path="Lab9_BinaryTree/Lab9_BinaryTree.vcxproj" />
+</Solution>

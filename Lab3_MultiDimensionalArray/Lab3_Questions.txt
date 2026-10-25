@@ -1,0 +1,313 @@
+LAB 3 — QUESTIONS (deduplicated)
+================================================
+Question prompts were consolidated from the supplied files. Exact and near-identical duplicates are included once.
+Variants with materially different requirements are retained.
+
+
+--- Item 1 | Source: Lab Task 3 (DS).docx ---
+
+Q1. Match the Tables Game
+Suppose there is a game known as "MATCH THE TABLES", in which the player picks up two tables (each having 5 rows and 5 columns) and matches them. If out of 25 entries at least 20 corresponding entries match then the tables are said to be identical and the player is declared the winner. Implement this in C++ using template.
+
+--- Item 2 | Source: Lab Task 3 (DS).docx ---
+
+Q2. Class Records & Statistical Analysis
+Write a program to keep records and perform statistical analysis for a class of students. The class may have up to 10 students. There are three quizzes during the term for computer programming. Each student is identified by a four digit roll no. The program will print the student scores and calculate and print the following statistics:
+High score & Low score for each quiz along with the roll number of that student.
+Average of Each Quiz and overall average of all the 3 quizzes.
+Highest Average and Lowest average of all the three quizzes along with quiz no.
+Highest marks & lowest marks of each student in the 3 quizzes along with the quiz no.
+
+--- Item 3 | Source: Lab Task 3 (DS).docx ---
+
+Q3. Determinant of 3x3 Matrix
+Write a C++ program to calculate the determinant of a 2D square matrix (3x3). You must implement a function template that takes a square matrix (2D array) as input and returns its determinant.
+
+--- Item 4 | Source: Lab Task 3 (DS).docx ---
+
+Q4. Euclidean Norm of a 2D Array
+Write a C++ program using template that calculates the Euclidean norm (also known as the L2 norm or magnitude) of a vector represented by a 2D array. The Euclidean norm is defined as the square root of the sum of the squares of all elements in the vector.
+Given array: Vector = [[3, 4], [2, 1]]
+Norm = sqrt(3^2 + 4^2 + 2^2 + 1^2) = sqrt(9 + 16 + 4 + 1) = sqrt(30)
+
+--- Item 5 | Source: Lab Task 3 (DS).docx ---
+
+Q5. Spiral Traversal of 2D Matrix
+Write a C++ program using template to traverse a 2D matrix in a spiral order and return the result as a single array. You should handle matrices of arbitrary sizes.
+Example:
+Array = [[1, 4, 7, 10], [2, 5, 8, 11], [3, 6, 9, 12]]
+Result = [1, 4, 7, 10, 11, 12, 9, 6, 3, 2, 5, 8]
+
+--- Item 6 | Source: Lab Task 3 (DS).docx ---
+
+Q6. Semester GPA / Lowest CGPA Finder
+Develop a program that takes three students' semester GPAs as inputs using a two-dimensional array and computes their CGPAs then finds the student with the lowest CGPA using the template.
+
+--- Item 7 | Source: Lab Task 3 (DS).docx ---
+
+Q7. Cricket Player Match Statistics
+Implement a C++ program using template to analyze the performance of cricket players based on their recent match statistics. Use the data to select the top 10 players for the next match based on their performance.
+Store data in a 2D array (12 players × 10 matches). Calculate total runs, average runs per match, and print the sorted top 10 players.
+
+--- Item 8 | Source: Lab Task 3 (DS).docx ---
+
+Q8. 90-Degree Clockwise Matrix Rotation
+Write a C++ program using template to rotate a square matrix by 90 degrees clockwise in-place.
+Given matrix: [[3, 4, 2], [5, 6, 1], [7, 8, 9]]
+After 90 degree rotation: [[7, 5, 3], [8, 6, 4], [9, 1, 2]]
+
+--- Item 9 | Source: Lab Task 3 (DS).docx ---
+
+Q9. Bingo Card Matcher Game
+Suppose there is a game known as "MATCH THE BINGO CARD", in which a player compares their 5x5 card with a master winning 5x5 card. If at least 15 corresponding positions match, the player wins a prize. Implement a C++ template function that checks if two 5x5 cards result in a win.
+
+--- Item 10 | Source: Lab Task 3 (DS).docx ---
+
+Q10. Salesperson Monthly Performance Analysis
+Write a program to record and analyze sales figures for a retail team. The team has up to 10 salespersons, each identified by a 4-digit employee ID. Performance is recorded across 3 quarters in a 2D array. The program prints all sales records and computes:
+Highest and Lowest sales for each quarter along with the employee ID.
+Average sales of each quarter and the overall combined average.
+Highest and Lowest quarter averages along with the quarter number.
+Highest and lowest sales achieved by each salesperson along with the quarter number.
+
+--- Item 11 | Source: Lab Task 3 (DS).docx ---
+
+Q11. Matrix Trace and Diagonal Product
+Write a C++ program to calculate the trace (sum of main diagonal elements) and the anti-diagonal product of a 3x3 square matrix. Implement a function template that takes a 3x3 matrix and returns its trace, and another template function that returns its anti-diagonal product.
+Given matrix A = [[a, b, c], [d, e, f], [g, h, i]]:
+Trace = a + e + i
+Anti-diagonal Product = c * e * g
+
+--- Item 12 | Source: Lab Task 3 (DS).docx ---
+
+Q12. Taxicab Norm (Manhattan L1 Norm) of a 2D Array
+Write a C++ program using template that calculates the Manhattan (L1) norm of a 2D array. The Manhattan norm is defined as the sum of the absolute values of all elements in the array.
+Given 2D array: Matrix = [[-3, 4], [2, -1]]
+Norm = |-3| + |4| + |2| + |-1| = 3 + 4 + 2 + 1 = 10
+
+--- Item 13 | Source: Lab Task 3 (DS).docx ---
+
+Q13. Boundary (Perimeter) Traversal of 2D Matrix
+Write a C++ program using template to traverse only the outer boundary (perimeter) elements of a 2D matrix in clockwise order (top row, right column, bottom row reversed, left column reversed) and return them in a 1D array.
+Example Input (3x4 Matrix):
+[[ 1,  2,  3,  4 ],
+ [ 5,  6,  7,  8 ],
+ [ 9, 10, 11, 12 ]]
+Result = [ 1, 2, 3, 4, 8, 12, 11, 10, 9, 5 ]
+
+--- Item 14 | Source: Lab Task 3 (DS).docx ---
+
+Q14. Student Course Marks & Top Performer Finder
+Develop a program that takes three students' marks across multiple subjects using a 2D array, calculates the overall percentage for each student, and determines the student with the highest average percentage using function templates.
+
+--- Item 15 | Source: Lab Task 3 (DS).docx ---
+
+Q15. Football Player Goal Statistics & Striker Selection
+Implement a C++ program using template to analyze the goal-scoring performance of 12 football players across 10 matches stored in a 2D array (12 rows × 10 columns).
+Tasks: Compute total goals per player, average goals per match, and display the top 10 strikers ranked by total goals in descending order.
+
+--- Item 16 | Source: Lab Task 3 (DS).docx ---
+
+Q16. Horizontal Matrix Reflection (Flip In-Place)
+Write a C++ program using template to flip a 2D matrix horizontally (left-to-right mirror reflection) in-place without allocating another array.
+Given matrix: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+After horizontal flip: [[3, 2, 1], [6, 5, 4], [9, 8, 7]]
+
+template <typename T, size_t rows = 5, size_t cols = 5>
+bool matchTables(const T (&table1)[rows][cols], const T (&table2)[rows][cols]);
+void inputStudentData(int numStudents, int numQuizzes, int rollNumbers[], int scores[][3]);
+void printStudentScores(int numStudents, int rollNumbers[], int scores[][3]);
+void calculateHighLowScores(int numStudents, int numQuizzes, int scores[][3]);
+void calculateAverages(int numStudents, int numQuizzes, int scores[][3]);
+void calculateHighestLowestAverages(int numStudents, int numQuizzes, int scores[][3]);
+void calculateHighestLowestMarks(int numStudents, int numQuizzes, int scores[][3]);
+template <typename T>
+T calculateDeterminant(T matrix[3][3]);
+template <typename T, size_t rows, size_t cols>
+double calculateEuclideanNorm(const T (&array)[rows][cols]);
+template <typename T, size_t rows, size_t cols>
+T* spiralOrder(const T (&matrix)[rows][cols], int& size);
+template <typename T, size_t numSemesters>
+T computeCGPAsAndFindLowest(const T gpaArray[][numSemesters], int numStudents);
+template <typename T, size_t numMatches>
+T inputPlayerData(T runs[][numMatches], int numPlayers);
+template <typename T, size_t numMatches>
+T computeStatistics(const T runs[][numMatches], int numPlayers, T totalRuns[], T avgRuns[]);
+template <typename T>
+T sortPlayersByTotalRuns(T totalRuns[], int playerIndices[], int numPlayers);
+template <typename T>
+T printTop10Players(const T totalRuns[], const int playerIndices[], int numPlayers);
+template <typename T, size_t SIZE>
+void rotateMatrix90DegreesClockwise(T (&matrix)[SIZE][SIZE]);
+template <typename T, size_t rows = 5, size_t cols = 5>
+bool matchBingoCards(const T (&card1)[rows][cols], const T (&card2)[rows][cols]);
+void inputSalesData(int numEmployees, int numQuarters, int empIDs[], int sales[][3]);
+void printSalesRecords(int numEmployees, int empIDs[], int sales[][3]);
+void calculateHighLowSales(int numEmployees, int numQuarters, int sales[][3]);
+void calculateQuarterAverages(int numEmployees, int numQuarters, int sales[][3]);
+void calculateHighestLowestQuarterAverages(int numEmployees, int numQuarters, int sales[][3]);
+void calculateHighestLowestSalesPerEmployee(int numEmployees, int numQuarters, int sales[][3]);
+template <typename T>
+T calculateTrace(const T matrix[3][3]);
+
+template <typename T>
+T calculateAntiDiagonalProduct(const T matrix[3][3]);
+template <typename T, size_t rows, size_t cols>
+T calculateManhattanNorm(const T (&array)[rows][cols]);
+template <typename T, size_t rows, size_t cols>
+T* boundaryOrder(const T (&matrix)[rows][cols], int& size);
+template <typename T, size_t numSubjects>
+T computePercentagesAndFindHighest(const T marksArray[][numSubjects], int numStudents);
+template <typename T, size_t numMatches>
+T inputGoalData(T goals[][numMatches], int numPlayers);
+template <typename T, size_t numMatches>
+T computeGoalStatistics(const T goals[][numMatches], int numPlayers, T totalGoals[], T avgGoals[]);
+template <typename T>
+T sortPlayersByTotalGoals(T totalGoals[], int playerIndices[], int numPlayers);
+template <typename T>
+T printTop10Strikers(const T totalGoals[], const int playerIndices[], int numPlayers);
+template <typename T, size_t rows, size_t cols>
+void flipMatrixHorizontally(T (&matrix)[rows][cols]);
+
+--- Item 17 | Source: Lab Task 3 (DS)_B.pdf ---
+
+Q1. Match the Tables Game 
+Suppose there is a game known as "MATCH THE TABLES", in which the player 
+picks up two tables (each having 5 rows and 5 columns) and matches them. If out 
+of 25 entries at least 20 corresponding entries match then the tables are said to 
+be identical and the player is declared the winner. Implement this in C++ using 
+template. 
+template <typename T, size_t rows = 5, size_t cols = 5> 
+bool matchTables(const T (&table1)[rows][cols], const T 
+(&table2)[rows][cols]);
+
+--- Item 18 | Source: Lab Task 3 (DS)_B.pdf ---
+
+Q2. Determinant of 3x3 Matrix 
+Write a C++ program to calculate the determinant of a 2D square matrix (3x3). 
+You must implement a function template that takes a square matrix (2D array) as 
+input and returns its determinant. 
+template <typename T> 
+
+T calculateDeterminant(T matrix[3][3]);
+
+--- Item 19 | Source: Lab Task 3 (DS)_B.pdf ---
+
+Q3. Euclidean Norm of a 2D Array 
+Write a C++ program using template that calculates the Euclidean norm (also 
+known as the L2 norm or magnitude) of a vector represented by a 2D array. The 
+Euclidean norm is defined as the square root of the sum of the squares of all 
+elements in the vector. 
+Given array: Vector = [[3, 4], [2, 1]] 
+Norm = sqrt(3^2 + 4^2 + 2^2 + 1^2) = sqrt(9 + 16 + 4 + 1) = sqrt(30) 
+template <typename T, size_t rows, size_t cols> 
+double calculateEuclideanNorm(const T (&array)[rows][cols]);
+
+--- Item 20 | Source: Lab Task 3 (DS)_B.pdf ---
+
+Q4. Spiral Traversal of 2D Matrix 
+Write a C++ program using template to traverse a 2D matrix in a spiral order and 
+return the result as a single array. You should handle matrices of arbitrary sizes. 
+Example: 
+Array = [[1, 4, 7, 10], [2, 5, 8, 11], [3, 6, 9, 12]] 
+Result = [1, 4, 7, 10, 11, 12, 9, 6, 3, 2, 5, 8] 
+template <typename T, size_t rows, size_t cols> 
+T* spiralOrder(const T (&matrix)[rows][cols], int& size);
+
+--- Item 21 | Source: Lab Task 3 (DS)_C.pdf ---
+
+Q1. Matrix Trace and Diagonal Product 
+Write a C++ program to calculate the trace (sum of main diagonal elements) and 
+the anti-diagonal product of a 3x3 square matrix. Implement a function template 
+that takes a 3x3 matrix and returns its trace, and another template function that 
+returns its anti-diagonal product. 
+Given matrix A = [[a, b, c], [d, e, f], [g, h, i]]: 
+Trace = a + e + i 
+Anti-diagonal Product = c * e * g 
+template <typename T> 
+T calculateTrace(const T matrix[3][3]); 
+ 
+template <typename T> 
+T calculateAntiDiagonalProduct(const T matrix[3][3]);
+
+--- Item 22 | Source: Lab Task 3 (DS)_C.pdf ---
+
+Q2. Taxicab Norm (Manhattan L1 Norm) of a 2D Array 
+Write a C++ program using template that calculates the Manhattan (L1) norm of 
+a 2D array. The Manhattan norm is defined as the sum of the absolute values of 
+all elements in the array. 
+Given 2D array: Matrix = [[-3, 4], [2, -1]] 
+Norm = |-3| + |4| + |2| + |-1| = 3 + 4 + 2 + 1 = 10 
+template <typename T, size_t rows, size_t cols> 
+T calculateManhattanNorm(const T (&array)[rows][cols]);
+
+--- Item 23 | Source: Lab Task 3 (DS)_C.pdf ---
+
+Q3. Football Player Goal Statistics & Striker Selection 
+Implement a C++ program using template to analyze the goal-scoring 
+performance of 12 football players across 10 matches stored in a 2D array (12 
+rows × 10 columns). 
+Tasks: Compute total goals per player, average goals per match, and display the 
+top 10 strikers ranked by total goals in descending order. 
+template <typename T, size_t numMatches> 
+T inputGoalData(T goals[][numMatches], int numPlayers); 
+template <typename T, size_t numMatches> 
+T computeGoalStatistics(const T goals[][numMatches], int 
+numPlayers, T totalGoals[], T avgGoals[]); 
+template <typename T> 
+T sortPlayersByTotalGoals(T totalGoals[], int playerIndices[], 
+int numPlayers); 
+template <typename T> 
+T printTop10Strikers(const T totalGoals[], const int 
+playerIndices[], int numPlayers);
+
+--- Item 24 | Source: Lab Task 3 (DS)_C.pdf ---
+
+Q4. Horizontal Matrix Reflection (Flip In-Place) 
+Write a C++ program using template to flip a 2D matrix horizontally (left-to-right 
+mirror reflection) in-place without allocating another array. 
+Given matrix: [[1, 2, 3], [4, 5, 6], [7, 8, 9]] 
+After horizontal flip: [[3, 2, 1], [6, 5, 4], [9, 8, 7]] 
+
+template <typename T, size_t rows, size_t cols> 
+void flipMatrixHorizontally(T (&matrix)[rows][cols]);
+
+--- Item 25 | Source: Lab_Task_3_Section_H.docx ---
+
+Q2. Determinant of 3x3 Matrix
+Write a C++ program to calculate the determinant of a 2D square matrix (3x3). You must implement a function template that takes a square matrix (2D array) as input and returns its determinant.
+
+--- Item 26 | Source: Lab_Task_3_Section_H.docx ---
+
+Q4. Semester GPA / Lowest CGPA Finder
+Develop a program that takes three students' semester GPAs as inputs using a two-dimensional array and computes their CGPAs then finds the student with the lowest CGPA using the template.
+template <typename T, size_t rows = 5, size_t cols = 5>
+bool matchTables(const T (&table1)[rows][cols], const T (&table2)[rows][cols]);
+template <typename T>
+T calculateDeterminant(T matrix[3][3]);
+template <typename T, size_t numMatches>
+T inputGoalData(T goals[][numMatches], int numPlayers);
+
+template <typename T, size_t numMatches>
+T computeGoalStatistics(const T goals[][numMatches], int numPlayers, T totalGoals[], T avgGoals[]);
+
+template <typename T>
+T sortPlayersByTotalGoals(T totalGoals[], int playerIndices[], int numPlayers);
+
+template <typename T>
+T printTop10Strikers(const T totalGoals[], const int playerIndices[], int numPlayers);
+template <typename T, size_t numSemesters>
+T computeCGPAsAndFindLowest(const T gpaArray[][numSemesters], int numStudents);
+
+--- Item 27 | Source: Lab_Tssk_3_Section_D.docx ---
+
+Q4. Student Course Marks & Top Performer Finder
+Develop a program that takes three students' marks across multiple subjects using a 2D array, calculates the overall percentage for each student, and determines the student with the highest average percentage using function templates.
+template <typename T, size_t rows = 5, size_t cols = 5>
+bool matchTables(const T (&table1)[rows][cols], const T (&table2)[rows][cols]);
+template <typename T, size_t rows, size_t cols>
+T* spiralOrder(const T (&matrix)[rows][cols], int& size);
+template <typename T>
+T calculateDeterminant(T matrix[3][3]);
+template <typename T, size_t numSubjects>
+T computePercentagesAndFindHighest(const T marksArray[][numSubjects], int numStudents);

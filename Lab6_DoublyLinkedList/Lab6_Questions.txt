@@ -1,0 +1,177 @@
+LAB 6 — QUESTIONS (deduplicated)
+================================================
+Question prompts were consolidated from the supplied files. Exact and near-identical duplicates are included once.
+Variants with materially different requirements are retained.
+
+
+--- Item 1 | Source: Lab Task 6 (DS).pdf ---
+
+Question 1: Design a Doubly Linked List Class 
+Design a doubly linked list class with the following specifications: 
+1. DoublyNode Class: Create a class called DoublyNode with the following data members: 
+• int data : stores the data for the node. 
+• DoublyNode* prev : pointer to the previous node. 
+• DoublyNode* next : pointer to the next node. 
+Provide the following member functions: 
+• A default constructor for DoublyNode. 
+• A parameterized constructor that sets the data, prev, and next pointers. 
+• Getter methods for data, prev, and next. 
+• Setter methods for data, prev, and next. 
+2. DoublyLinkedList Class: Create a class called DoublyLinkedList to manage a doubly linked list. It should have a 
+pointer to the head node initially. Provide the following member functions: 
+• A default constructor for DoublyLinkedList. 
+• insert : insert a data item at the end of the list. If the list is empty, the new node becomes the head. 
+• insertToHead : insert a data element at the beginning of the list. 
+• isEmpty : check whether the list is empty. 
+• Explain why there is no need to implement an isFull function. 
+• search : search for a specific element and return true if found, false otherwise. 
+• update : update/replace one data element with another. 
+• insertAtIndex : count the data elements in the list and insert a new element at the specified index (0-
+based). 
+• deleteData : delete a specified data element, correctly updating the previous node's next pointer and the 
+next node's prev pointer. 
+• print : print the data of the list from head to end. 
+Example:  
+DoublyLinkedList list; 
+list.insert(10);          // list: 10 
+list.insert(20);          // list: 10 <-> 20 
+list.insertToHead(5);     // list: 5 <-> 10 <-> 20 
+list.insertAtIndex(1, 7); // list: 5 <-> 7 <-> 10 <-> 20 
+
+list.search(10);          // returns true 
+list.deleteData(7);       // list: 5 <-> 10 <-> 20 
+list.print();             // Output: 5 10 20
+
+--- Item 2 | Source: Lab Task 6 (DS).pdf ---
+
+Question 2: Design a Music Playlist Navigator 
+Problem Description:  
+Design a music playlist navigator using a circular doubly linked list. The playlist loops: after the last song it wraps 
+to the first, and before the first song it wraps to the last. Support moving to the next/previous song and 
+removing the currently playing song, using only next/prev pointers , no other data structure. 
+ 
+Note: Write main function of this question, no test cases. 
+Example: 
+Input: 
+  Playlist p; 
+  p.addSong("A");     // playlist: A  (current = A) 
+  p.addSong("B");     // playlist: A <-> B 
+  p.addSong("C");     // playlist: A <-> B <-> C 
+  p.next();           // returns "B" 
+  p.next();           // returns "C" 
+  p.next();           // wraps around, returns "A" 
+  p.removeCurrent();  // removes "A", returns "B" 
+  p.previous();       // wraps around, returns "C" 
+  
+Output: 
+  B, C, A, B, C 
+• addSong(name) : insert a new song node at the end of the circular list. 
+• next() / previous() : move the current pointer one step around the circle, wrapping automatically. 
+• removeCurrent() : unlink the current node and set current to the node that followed it.
+
+--- Item 3 | Source: Lab Task 6 (DS).pdf ---
+
+Question 3: Flatten a Multilevel Doubly Linked List 
+Problem Description:  
+You are given a doubly linked list where, in addition to next and prev, some nodes also have a child pointer to a 
+separate doubly linked list (which may itself contain further child lists). Flatten the structure into a single-level 
+doubly linked list, where a child list is inserted immediately after the node that owns it. 
+Example: 
+Input: 
+  1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6 <-> NULL 
+               | 
+               7 <-> 8 <-> 9 <-> 10 <-> NULL 
+                     | 
+                     11 <-> 12 <-> NULL 
+  
+Output: 
+  1 <-> 2 <-> 3 <-> 7 <-> 8 <-> 11 <-> 12 <-> 9 <-> 10 <-> 4 <-> 5 <-> 6 <-> NULL 
+• Use recursion to splice each child list in after its parent node (pure pointer re-linking  no auxiliary data 
+structure needed). 
+
+• After flattening, every child pointer must be set back to NULL.
+
+--- Item 4 | Source: Task06_B.pdf ---
+
+Question 2: Flatten a Multilevel Doubly Linked List  
+Problem Description:  
+You are given a doubly linked list where, in addition to next and prev, some nodes also have a child pointer to a 
+separate doubly linked list (which may itself contain further child lists). Flatten the structure into a single-level 
+doubly linked list, where a child list is inserted immediately after the node that owns it. 
+Example: 
+Input: 
+  1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6 <-> NULL 
+               | 
+               7 <-> 8 <-> 9 <-> 10 <-> NULL 
+                     | 
+                     11 <-> 12 <-> NULL 
+  
+Output: 
+  1 <-> 2 <-> 3 <-> 7 <-> 8 <-> 11 <-> 12 <-> 9 <-> 10 <-> 4 <-> 5 <-> 6 <-> NULL 
+• Use recursion to splice each child list in after its parent node (pure pointer re-linking — no auxiliary data 
+structure needed). 
+• After flattening, every child pointer must be set back to NULL.
+
+--- Item 5 | Source: Task06_B.pdf ---
+
+Question 3: Sort a Doubly Linked List (Merge Sort)  
+Problem Description:  
+Given an unsorted doubly linked list, sort it in ascending order using the merge-sort algorithm adapted for a DLL: 
+split the list into two halves using a slow/fast pointer, recursively sort each half, then merge them back by re-
+linking prev/next pointers. No arrays, stacks, or queues — only pointer manipulation. 
+Example: 
+Input: 
+  4 <-> 2 <-> 1 <-> 3 <-> NULL 
+  
+Output: 
+  1 <-> 2 <-> 3 <-> 4 <-> NULL 
+• Find the middle node with a slow/fast pointer to split the list into two halves. 
+• Recursively sort each half, then merge them by re-linking prev/next pointers directly (no extra list 
+allocation).
+
+--- Item 6 | Source: Task06_C.pdf ---
+
+Question 2: Design Browser History (Doubly Linked List) [Medium] 
+Problem Description:  
+You want to implement a browser history feature. Model each visited URL as a node in a doubly linked list, 
+where next moves you forward in history and prev moves you back. Visiting a new page discards all forward 
+history from the current page. 
+Design the main for this question 
+Example: 
+Input: 
+  BrowserHistory bh("leetcode.com"); 
+  bh.visit("google.com"); 
+  bh.visit("facebook.com"); 
+  bh.visit("youtube.com"); 
+  bh.back(1);     // returns "facebook.com" 
+  bh.back(1);     // returns "google.com" 
+  bh.forward(1);  // returns "facebook.com" 
+  bh.visit("linkedin.com");  // forward history (youtube.com) is discarded 
+  bh.forward(2);  // returns "linkedin.com" (nothing further exists) 
+  bh.back(2);     // returns "google.com" 
+  
+Output: 
+  facebook.com, google.com, facebook.com, linkedin.com, google.com 
+• BrowserHistory(string homepage) — start with homepage as the only entry. 
+• void visit(string url) — visit a new url from the current page; clears all forward history. 
+• string back(int steps) — move back at most steps pages; return the resulting url. 
+• string forward(int steps) — move forward at most steps pages; return the resulting url.
+
+--- Item 7 | Source: Task06_C.pdf ---
+
+Question 3: Reorder a Doubly Linked List (Zig-Zag Merge from Both Ends) [Medium] 
+Problem Description:  
+Given a doubly linked list L0 <-> L1 <-> ... <-> Ln-1 <-> Ln, reorder it in place to L0 <-> Ln <-> L1 <-> Ln-1 <-> L2 <-> 
+Ln-2 <-> ... Do this using only the list's own next and prev pointers — a doubly linked list lets you read backward 
+from the tail directly, which is exactly why this is straightforward here but needs an extra data structure on a 
+singly linked list. 
+Example: 
+Input: 
+  1 <-> 2 <-> 3 <-> 4 <-> 5 <-> NULL 
+  
+Output: 
+  1 <-> 5 <-> 2 <-> 4 <-> 3 <-> NULL 
+
+• Walk two pointers inward — one from head via next, one from tail via prev — splicing nodes alternately 
+into the result. 
+• Stop once the two pointers meet or cross; re-link the final pair's next/prev to NULL.

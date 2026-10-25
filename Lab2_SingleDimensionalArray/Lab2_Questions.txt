@@ -1,0 +1,151 @@
+LAB 2 — QUESTIONS (deduplicated)
+================================================
+Question prompts were consolidated from the supplied files. Exact and near-identical duplicates are included once.
+Variants with materially different requirements are retained.
+
+
+--- Item 1 | Source: Lab Task 2.pdf ---
+
+Q1. Find the Most Frequent Element 
+Write a template in C++ program to find the most frequent element in an array of integers. 
+ 
+Prototype: 
+T findMostFrequentElement(T arr[], int size)
+
+--- Item 2 | Source: Lab Task 2.pdf ---
+
+Q2. Rearrange a Sorted Array 
+Write a template for C++ program to rearrange a given sorted array of positive integers. 
+Note: In the final array, the first element should be the maximum value, the second 
+minimum value, the third second maximum value, the fourth second minimum value, the 
+fifth third maximum value, and so on. 
+ 
+Prototype: 
+void rearrangeArray(T arr[], int size)
+
+--- Item 3 | Source: Lab Task 2.pdf ---
+
+Q3. Sum of Two Equal-Length Arrays 
+Write a C++ program to find the sum of two equal-length arrays using a function template. 
+Also perform the unit test for this part. 
+ 
+Prototype: 
+
+T* sumOfArrays(const T arr1[], const T arr2[], int size)
+
+--- Item 4 | Source: Lab Task 2.pdf ---
+
+Q4. Sort an Array in Wave Form 
+Define a template Container in C++ program to sort a given unsorted array of integers in 
+wave form. 
+Note: An array is in wave form when: 
+array[0] >= array[1] <= array[2] >= array[3] <= array[4] >= ... 
+ 
+Prototype: 
+class Container { 
+private: 
+    T *arr; 
+    int size; 
+public: 
+    T* sortInWaveForm(); 
+};
+
+--- Item 5 | Source: Lab_Task_2_SectionD.docx ---
+
+Q1. Check Palindrome Array
+Write a function template in C++ that checks whether an array is a palindrome, i.e., it reads the same forward and backward.
+Prototype:
+bool isPalindrome(T arr[], int size)
+
+Examples:
+1 2 3 2 1 → Palindrome
+1 2 3 4 → Not a palindrome
+
+--- Item 6 | Source: Lab_Task_2_SectionD.docx ---
+
+Q2. Find Second Largest Element
+Write a function template in C++ to find the second largest element in an array.
+Prototype:
+T findSecondLargest(T arr[], int size)
+
+--- Item 7 | Source: Lab_Task_2_SectionD.docx ---
+
+Q3. Reverse an Array
+Write a function template in C++ to reverse the elements of an array in-place without using another array.
+Prototype:
+void reverseArray(T arr[], int size)
+
+--- Item 8 | Source: Lab_Task_2_SectionD.docx ---
+
+Q4. Find Most Frequently Occurring Element
+Write a function template in C++ that finds the element which occurs the most number of times in an array. If there is a tie, return the element that occurs first among the tied elements based on your chosen strategy.
+Prototype:
+T findMostFrequentElement(T arr[], int size)
+
+--- Item 9 | Source: Lab_Task_2_Section_H.docx ---
+
+Q1. Find Minimum and Maximum
+Write a function template in C++ to find the minimum and maximum elements in an array.
+Prototype:
+void findMinMax(T arr[], int size, T& min, T& max)
+
+--- Item 10 | Source: Lab_Task_2_Section_H.docx ---
+
+Q3. Remove Duplicate Elements
+Write a function template in C++ to remove duplicate elements from an array. The function should modify the original array and return the new size of the array.
+Prototype:
+int removeDuplicates(T arr[], int size)
+
+--- Item 11 | Source: Lab_Task_2_Section_H.docx ---
+
+Q4. Template Array Container
+Define a class template ArrayContainer that stores an array dynamically and provides functions to calculate the sum, average, and largest element.
+Prototype:
+template <typename T>
+class ArrayContainer
+{
+private:
+    T* arr;
+    int size;
+public:
+    ArrayContainer(T input[], int size);
+    T calculateSum();
+    double calculateAverage();
+    T findLargest();
+};
+The class should dynamically allocate memory in the constructor and release it using a destructor.
+
+--- Item 12 | Source: Lab Task 2_B.pdf ---
+
+Q2. Sum of Two Equal-Length Arrays 
+Write a C++ program to find the sum of two equal-length arrays using a function template. 
+Also perform the unit test for this part. 
+ 
+Prototype: 
+T* sumOfArrays(const T arr1[], const T arr2[], int size)
+
+--- Item 13 | Source: Lab Task 2_C.pdf ---
+
+Q3. Rotate an Array 
+Write a function template in C++ to rotate an array to the right by k positions. 
+For example: 
+Original: 1 2 3 4 5 
+k = 2 
+Result: 4 5 1 2 3 
+ 
+Prototype: 
+void rotateArray(T arr[], int size, int k)
+
+--- Item 14 | Source: Lab Task 2_C.pdf ---
+
+Q4. Check if an Array is a Palindrome 
+Write a function template in C++ to determine whether an array is a palindrome. 
+ 
+An array is a palindrome if it reads the same from left to right and right to left. 
+ 
+Examples: 
+1 2 3 2 1 → Palindrome 
+1 2 3 4 → Not a palindrome 
+ 
+Prototype: 
+bool isPalindrome(T arr[], int size)
